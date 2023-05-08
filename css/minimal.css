@@ -2,64 +2,6 @@
 @import url(common.css);
 @import url(https://fonts.googleapis.com/css?family=Poppins:300,500,700&display=swap);
 
-body{
-    font-family: "Poppins", sans-serif;
-    font-size: 12px;
-    font-weight: 500;
-    color: #E5E5E5;
-    padding-top: 55px;
-}
-.wrapper{
-    overflow: clip;
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-.wrapper>main{
-    flex-grow: 1;
-}
-.header{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 50;
-    background: #fefefe;
-}
-[class*="__container"]{
-    max-width: 1270px;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin: 0 auto;
-}
-.header__container{
-    padding-top: 5px;
-    padding-bottom: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 50px;
-    gap: 10px;
-}
-.header__logo{
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 1.39;
-    color: #495057;
-    text-transform: uppercase;
-    position: relative;
-    z-index: 2;
-}
-.header__logo::after{
-    content: ".";
-    color: #DDBEA9;
-}
-.menu__list{
-    display: flex;
-    column-gap: 25px;
-    row-gap: 5px;
-    flex-wrap: wrap;
-}
 .menu__link.active,
 .folio__link.active{
     color: #495057;
@@ -169,12 +111,8 @@ body{
 .articles__list:not(:last-child){
     margin-bottom: 60px;
 }
-.articles__list{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    row-gap: 40px;
-    column-gap: 10px;
+.articles__list>*:not(:last-child){
+    margin-bottom: 40px;
 }
 .card-article{
     display: flex;
@@ -199,6 +137,8 @@ body{
     object-fit: cover;
 }
 .card-article__body{
+    flex: 0 0 47.44%;
+    align-self: center;
     display: flex;
     flex-direction: column;
     row-gap: 15px;
@@ -217,11 +157,8 @@ body{
     display: flex;
     justify-content: space-between;
 }
-.card-article__author:hover{
-    text-decoration: underline;
-}
 .card-article__likes{
-    display: flex;
+    display: inline-flex;
     align-items: center;
     column-gap: 5px;
 }
@@ -230,15 +167,17 @@ body{
     flex: 0 0 13px;
     height: 11.12px;
     width: 13px;
-    background-image: url(../img/like.svg);
+    background: url(../img/like.svg) center no-repeat;
     transition: all 0.3s;
 }
 .card-article__likes:hover::before{
-    background-image: url(../img/like_hover.svg);
+    background: url(../img/like_hover.svg) center no-repeat;
 }
-.folio__list {
-    display: flex;
-    column-gap: 15px;
+.folio__list>*:not(:last-child){
+    margin-right: 15px;
+}
+.folio__item{
+    display: inline-block;
 }
 .menu__link,
 .actions__sign-in,
@@ -307,6 +246,9 @@ body{
     .card-article__image:hover img{
         transform: scale(1.1);
     }
+    .card-article__author:hover{
+        text-decoration: underline;
+    }
     .folio__item:hover .folio__link{
         color: #495057;
     }
@@ -328,11 +270,6 @@ body{
         color: #DDBEA9;
     }
 }
-@media (min-width: 992px){
-}
-@media (max-width: 991.98px){
-   
-} 
 @media (min-width: 768px){
     .box-slider__image{
         height: 500px;
@@ -345,6 +282,9 @@ body{
     }
 }
 @media (max-width: 767.98px){
+    .page{
+        margin-bottom: 50px;
+    }
     .page__slider{
         margin-bottom: 50px;
     }
@@ -383,9 +323,15 @@ body{
     .topics__input{
         font-size: 18px;
     }
+    .articles__list:not(:last-child) {
+        margin-bottom: 30px;
+    }
+    .articles__folio{
+        text-align: center;
+    }
 }
 @media (min-width: 660px){
-    .sub-menu {
+    .sub-menu{
         position: absolute;
         top: 120%;
         left: 0;
@@ -395,7 +341,7 @@ body{
         padding-top: 5px;
         pointer-events: none;
     }
-    .menu__item_parent::after {
+    .menu__item_parent::after{
         content: "";
         width: 8px;
         height: 5px;
@@ -519,6 +465,11 @@ body{
         align-items: center;
     }
 }
+@media (max-width: 626px){
+    .topics__list{
+        flex-direction: column;
+    }
+}
 @media (max-width: 520px){
     .box-slider__title{
         font-size: 20px;
@@ -530,6 +481,23 @@ body{
     }
     .header__actions{
         column-gap: 15px;
+    }
+    .card-article{
+        flex-direction: column;
+    }
+    .card-article__image{
+        flex: 0 0 100%;
+        padding-bottom: 69.444444444%;
+    }
+    .card-article__body{
+        flex: 0 0 100%;
+        row-gap: 10px;
+    }
+    .card-article__bottom{
+        padding-top: 10px;
+    }
+    .articles__list>*:not(:last-child){
+        margin-bottom: 20px;
     }
 }
 
