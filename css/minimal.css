@@ -165,7 +165,7 @@
 .card-article__likes::before{
     content: "";
     flex: 0 0 13px;
-    height: 11.12px;
+    height: 12px;
     width: 13px;
     background: url(../img/like.svg) center no-repeat;
     transition: all 0.3s;
